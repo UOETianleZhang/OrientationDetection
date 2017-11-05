@@ -5,4 +5,12 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="toobal_add_window">64dp</dimen>
+    <dimen name="window">16dp</dimen>
+    <dimen name="toolbar_padding_top">0dp</dimen>
+
+    <dimen name="subtitle_size">25dp</dimen>
+    <dimen name="text_size">20dp</dimen>
+    <dimen name="standard_margin">15dp</dimen>
+    <dimen name="samll_margin">5dp</dimen>
 </resources>

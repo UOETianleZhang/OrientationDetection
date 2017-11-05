@@ -1,6 +1,9 @@
-package com.example.orientation_detection;
+package com.example.orientation_detection.activities;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -12,9 +15,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+
+import com.example.orientation_detection.module.GetOrientation;
+import com.example.orientation_detection.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
+
+    public static final int DISPLAY_ORIENTATION = 1;
+    GetOrientation orientation;
+
+    //the loop body in the subthread
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what == DISPLAY_ORIENTATION){
+                orientation.displayOrientation();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +43,16 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //let the tool bar transparent
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+        }
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //hide the floating action bar!
+        fab.hide();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +69,23 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                orientation = new GetOrientation(MainActivity.this);
+                while (true){
+                    try {
+                        Thread.sleep(80);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Message message = new Message();
+                    message.what = DISPLAY_ORIENTATION;
+                    handler.sendMessage(message);
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -98,4 +144,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
