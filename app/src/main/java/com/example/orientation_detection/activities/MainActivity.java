@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,21 +20,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.orientation_detection.module.GetLight;
 import com.example.orientation_detection.module.GetOrientation;
 import com.example.orientation_detection.R;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public static final int DISPLAY_ORIENTATION = 1;
+
     GetOrientation orientation;
+    GetLight light;
+
+    NavigationView navigationView;
+    //声明ViewPager
+    private ViewPager mViewPager;
+    //适配器
+    private FragmentPagerAdapter mAdapter;
+    //装载Fragment的集合
+    private List<Fragment> mFragments;
 
     //the loop body in the subthread
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             if(msg.what == DISPLAY_ORIENTATION){
-                orientation.displayOrientation();
+                orientation.displaySensor();
+                light.displaySensor();
             }
         }
     };
@@ -40,15 +57,14 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         //let the tool bar transparent
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
         }
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         //hide the floating action bar!
@@ -67,13 +83,25 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        initFragmentViews();//初始化控件
+        initFragmentData();//初始化数据
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        orientation = new GetOrientation(MainActivity.this);
+        orientation.initSensor();
+
+        light = new GetLight(MainActivity.this);
+        light.initSensor();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                orientation = new GetOrientation(MainActivity.this);
                 while (true){
                     try {
                         Thread.sleep(80);
@@ -86,6 +114,13 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }).start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        orientation.destroySensor();
+        light.destroySensor();
     }
 
     @Override
@@ -126,14 +161,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
+        if (id == R.id.nav_orientation) {
+            mViewPager.setCurrentItem(0);
+        } else if (id == R.id.nav_light) {
+            mViewPager.setCurrentItem(1);
         } else if (id == R.id.nav_slideshow) {
-
+            mViewPager.setCurrentItem(2);
         } else if (id == R.id.nav_manage) {
-
+            mViewPager.setCurrentItem(3);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -145,5 +180,55 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    private void initFragmentData() {
+        mFragments = new ArrayList<>();
+        //将四个Fragment加入集合中
+        mFragments.add(new OrientationFragment());
+        mFragments.add(new LightFragment());
+        mFragments.add(new ThirdFragment());
+        mFragments.add(new ForthFragment());
+
+        //初始化适配器
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {//从集合中获取对应位置的Fragment
+                return mFragments.get(position);
+            }
+            @Override
+            public int getCount() {//获取集合中Fragment的总数
+                return mFragments.size();
+            }
+
+        };
+
+        //不要忘记设置ViewPager的适配器
+        mViewPager.setAdapter(mAdapter);
+        //设置ViewPager的切换监听
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            //页面滚动事件
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                navigationView.getMenu().getItem(position).setChecked(true);
+            }
+            //页面选中事件
+            @Override
+            public void onPageSelected(int position) {
+                //设置position对应的集合中的Fragment
+//                mViewPager.setCurrentItem(position);
+                //resetImgs();
+                //selectTab(position);
+            }
+            @Override
+            //页面滚动状态改变事件
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    //初始化控件
+    private void initFragmentViews() {
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+    }
 
 }
