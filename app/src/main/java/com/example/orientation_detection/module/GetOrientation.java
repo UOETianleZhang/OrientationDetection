@@ -93,8 +93,7 @@ public class GetOrientation extends GetData implements SensorEventListener{
         }
         calculateOrientation();
 
-        //测试的是实际的间隔时间，不是最小
-        //是最小
+        //To measure the minimum sampling interval
         long inteval = System.nanoTime() - currentTime;
         currentTime = System.nanoTime();
         try {

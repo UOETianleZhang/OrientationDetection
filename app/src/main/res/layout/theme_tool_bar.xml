@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/toolbar_padding_top"
     android:background="@color/colorPrimary"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:title="@string/app_name">
+    app:title="Orientation"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 </android.support.v7.widget.Toolbar>

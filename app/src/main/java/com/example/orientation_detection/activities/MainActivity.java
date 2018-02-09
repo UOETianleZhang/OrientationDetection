@@ -35,11 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     GetLight light;
 
     NavigationView navigationView;
-    //声明ViewPager
     private ViewPager mViewPager;
-    //适配器
     private FragmentPagerAdapter mAdapter;
-    //装载Fragment的集合
     private List<Fragment> mFragments;
 
     //the loop body in the subthread
@@ -86,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        initFragmentViews();//初始化控件
-        initFragmentData();//初始化数据
+        initFragmentViews();//Initialize components
+        initFragmentData();//Initialize data
     }
 
     @Override
@@ -116,9 +113,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }).start();
     }
 
+
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onDestroy() {
+        super.onDestroy();
         orientation.destroySensor();
         light.destroySensor();
     }
@@ -174,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_send) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -201,32 +198,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         };
 
-        //不要忘记设置ViewPager的适配器
         mViewPager.setAdapter(mAdapter);
-        //设置ViewPager的切换监听
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            //页面滚动事件
+            //When a tap changes
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 navigationView.getMenu().getItem(position).setChecked(true);
+//                Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+//                switch (position) {
+//                    case 0:
+//                        toolbar.setTitle("Orientation");
+//                        break;
+//                    case 1:
+//                        toolbar.setTitle("Light");
+//                        break;
+//                    case 2:
+//                        toolbar.setTitle("Third");
+//                        break;
+//                    case 3:
+//                        toolbar.setTitle("Forth");
+//                        break;
+//                }
             }
-            //页面选中事件
+            //When a tab is selected
             @Override
             public void onPageSelected(int position) {
-                //设置position对应的集合中的Fragment
-//                mViewPager.setCurrentItem(position);
                 //resetImgs();
-                //selectTab(position);
+                Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+                switch (position) {
+                    case 0:
+                        toolbar.setTitle("Orientation");
+                        break;
+                    case 1:
+                        toolbar.setTitle("Light");
+                        break;
+                    case 2:
+                        toolbar.setTitle("Third");
+                        break;
+                    case 3:
+                        toolbar.setTitle("Forth");
+                        break;
+                }
             }
             @Override
-            //页面滚动状态改变事件
+            //When the state of a tap changes
             public void onPageScrollStateChanged(int state) {
 
             }
         });
     }
 
-    //初始化控件
+    //Initialization
     private void initFragmentViews() {
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
     }
