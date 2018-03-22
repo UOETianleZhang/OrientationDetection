@@ -1,14 +1,19 @@
 package com.example.orientation_detection.activities;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,9 +25,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import com.example.orientation_detection.module.GetLight;
-import com.example.orientation_detection.module.GetOrientation;
 import com.example.orientation_detection.R;
+import com.example.orientation_detection.Services.DataIntentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,22 +34,32 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     public static final int DISPLAY_ORIENTATION = 1;
-
-    GetOrientation orientation;
-    GetLight light;
+    public static String TAG = "MainActivity";
 
     NavigationView navigationView;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
     private List<Fragment> mFragments;
 
+    private DataIntentService.DataBinder dataBinder;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+        }
+        //excuted when the Service is binded to the activity
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            dataBinder = (DataIntentService.DataBinder) service;
+        }
+    };
+
     //the loop body in the subthread
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             if(msg.what == DISPLAY_ORIENTATION){
-                orientation.displaySensor();
-                light.displaySensor();
+                dataBinder.getOrientationData().displaySensor(MainActivity.this);
+                dataBinder.getLightData().displaySensor(MainActivity.this);
             }
         }
     };
@@ -53,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate: ");
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -83,18 +98,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         initFragmentViews();//Initialize components
         initFragmentData();//Initialize data
+
+        //start the Service (bind it to activity afterwards in onResume)
+        Intent intentService = new Intent(this,DataIntentService.class);
+        startService(intentService);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        orientation = new GetOrientation(MainActivity.this);
-        orientation.initSensor();
-
-        light = new GetLight(MainActivity.this);
-        light.initSensor();
+        Log.d(TAG, "onResume: ");
+        Intent bindIntent = new Intent(this,DataIntentService.class);   //bind the Service to activity
+        bindService(bindIntent,connection,BIND_AUTO_CREATE);
 
         new Thread(new Runnable() {
             @Override
@@ -113,12 +131,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }).start();
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+        unbindService(connection);  //unbind the Service in case ServiceConnection is leaked
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        orientation.destroySensor();
-        light.destroySensor();
+        Log.d(TAG, "onDestroy: ");
     }
 
     @Override
@@ -130,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,13 +202,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initFragmentData() {
         mFragments = new ArrayList<>();
-        //将四个Fragment加入集合中
+        //Put fragments into the List
         mFragments.add(new OrientationFragment());
         mFragments.add(new LightFragment());
         mFragments.add(new ThirdFragment());
         mFragments.add(new ForthFragment());
 
-        //初始化适配器
+        //Initiate the adapter
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {//从集合中获取对应位置的Fragment

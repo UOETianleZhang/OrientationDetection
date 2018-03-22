@@ -1,5 +1,6 @@
 # OrientationDetection
-An Android app able to get the spatial orientation data of the phone. The detailed information can be found in the file "introduction.pdf", which is the mid-term presentation of my final project.
+
+An Android app able to get the spatial orientation data of the phone. The detailed information can be found in [Introduction](https://github.com/UOETianleZhang/OrientationDetection/blob/master/Introduction.pdf), which is the mid-term presentation of my final project.
 
 
 
