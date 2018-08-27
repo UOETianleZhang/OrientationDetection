@@ -42,7 +42,7 @@ When finishing the recording, connect the phone/tablet to your computer. Then  c
 
 ###Java code
 
-The main part of Java source code includes 4 files: MainActivity, DataService, GetLight and GetOrientation.![Java Code](https://github.com/UOETianleZhang/OrientationDetection/blob/master/Java Code.png)
+The main part of Java source code includes 4 files: MainActivity, DataService, GetLight and GetOrientation.![Java Code](https://github.com/UOETianleZhang/OrientationDetection/blob/master/Java%20Code.png)
 
 1. **MainActivity**: the entrance of the whole program, controls the display of UI. It contains four main UI components: Toolbar, NavigationView class, LightFragment class and OrientationFragment class.
 2. **DataService:** The acquisition of the orientation & light data is realised by it. The DataService class calls functions of the GetLight class and the GetOrientation class.
