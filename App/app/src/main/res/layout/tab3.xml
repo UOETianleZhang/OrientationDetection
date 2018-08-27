@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orientation sensors:"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="#5c5c5c"
+                android:textStyle="bold"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Accelerometer"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Magnetic Field"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light sensor:"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="#5c5c5c"
+                android:textStyle="bold"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Light Sensor"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other sensors:"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="#5c5c5c"
+                android:textStyle="bold"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Ambient Temperature"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Gravity Sensor"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Gyroscope"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Linear Accelerometer"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Rotation Vector"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:background="@drawable/shadow">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/samll_margin"
+                    android:text="Step Counter"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/subtitle_size"
+                    />
+                <View  android:layout_height="1px"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginHorizontal="@dimen/samll_margin"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorLine"
+                    />
+                <TextView
+                    android:id="@+id/item9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="  Unavilible!"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

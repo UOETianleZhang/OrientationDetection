@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_orientation"
+            android:icon="@drawable/vector_drawable_menu_orientation"
+            android:title="Orientation" />
+        <item
+            android:id="@+id/nav_light"
+            android:icon="@drawable/vector_drawable_menu_light"
+            android:title="Illuminance" />
+        <!--<item-->
+            <!--android:id="@+id/nav_slideshow"-->
+            <!--android:title="" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    </group>
+
+    <item android:title="State">
+        <menu>
+            <item
+                android:id="@+id/sensor_state"
+                android:icon="@drawable/vector_drawable_question"
+                android:title="Sensor State" />
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        </menu>
+    </item>
+
+</menu>

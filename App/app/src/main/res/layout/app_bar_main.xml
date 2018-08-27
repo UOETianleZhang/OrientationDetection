@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <!--3 values of app:layout_scrollFlags: scroll, enterAlways and exitUntilCollapsed-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <include layout="@layout/theme_tool_bar"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <com.freedom.lauzy.playpauseviewlib.PlayPauseView
+            android:id="@+id/play_pause_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="80dp"
+            app:anim_direction="positive"
+            app:anim_duration="300"
+            app:bg_color="#E0E0E0"
+            app:btn_color="#000000"
+            app:gap_width="3dp" />
+    </FrameLayout>
+
+    <!--android:layout_height="287dp"-->
+    <!--android:layout_weight="1"/>-->
+
+
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+
+        <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
+
+
+</LinearLayout>

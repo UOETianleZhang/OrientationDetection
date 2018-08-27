@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/tianlezhang/.android/build-cache/14a14b4c5e57b8fd39ba9b37a1e8ede3f324fd90/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="/Users/tianlezhang/AndroidStudioProjects/OrientationDetection/app/build/intermediates/pre-dexed/debug/classes_421b38c6b24d54e22f3f7cbee715f8c841462b9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tianlezhang/.android/build-cache/9a630ac5f17dbef4cea5a291cf628868faee241f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/tianlezhang/AndroidStudioProjects/OrientationDetection/app/build/intermediates/pre-dexed/debug/classes_5fcc8f66eb4ffba475f50bd005d224dd963e5687.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tianlezhang/.android/build-cache/26516c7f238ac9225620721c050800f935d77e74/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="/Users/tianlezhang/AndroidStudioProjects/OrientationDetection/app/build/intermediates/pre-dexed/debug/classes_38bd781d11ee3a36d819e5c66ea6adbf1d9cdc30.jar" />
+    </item>
+
+</items>
