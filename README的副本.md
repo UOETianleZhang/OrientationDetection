@@ -16,7 +16,7 @@ An Android app able to get spatial orientation and light data of the phone.
 
 4. The Android Studio interface should look like this
 
-   ![Android Studio](/Users/tianlezhang/Desktop/Android Studio.png)
+   ![Android Studio](Android Studio.png)
 
 5. Connect the computer to an Android phone/tablet, and ensure you have opened the developer mode on the phone. (To enable the Android Studio detect your phone/tablet: open "Setting" -> "Developer Mode" -> switch on "USB debugger". Please note that the procedure may differ on different Android brands, and sometimes the "Developer Mode" can be hidden. Goolge it when fail to find it.) If it is set successfully, when pressing the green "Run" button on the Android Studio, the phone/tablet name should be shown on the computer.
 
@@ -28,7 +28,7 @@ An Android app able to get spatial orientation and light data of the phone.
 
 The app records the sensor data to 4 files: "*DataMagnetometer.txt*" (magnetic field values by time), *"DataAccelerometer.txt"*(acceleration values by time), *“DataOrientation.txt”* (orientation angles by time; please note that it is just a rough estimation, and the exact values should be calculated from two files above) and *"DataLight.txt"* (illuminance value by time). 
 
-### Record the data![Start:Pause](/Users/tianlezhang/Desktop/Start:Pause.png)
+### Record the data![Start:Pause](Start:Pause.png)
 
 When opening the app, it goes into the state 1 as shown above. If you'd like to record the data during a fixed period time, press the triangle button on the screen and press the button again to stop recording when finishing. If you press the triangle button again, the data files would be deleted and rewitten, so please be careful.
 
@@ -42,7 +42,7 @@ When finishing the recording, connect the phone/tablet to your computer. Then  c
 
 ###Java code
 
-The main part of Java source code includes 4 files: MainActivity, DataService, GetLight and GetOrientation.![Java Code](/Users/tianlezhang/Desktop/Java Code.png)
+The main part of Java source code includes 4 files: MainActivity, DataService, GetLight and GetOrientation.![Java Code](Java Code.png)
 
 1. **MainActivity**: the entrance of the whole program, controls the display of UI. It contains four main UI components: Toolbar, NavigationView class, LightFragment class and OrientationFragment class.
 2. **DataService:** The acquisition of the orientation & light data is realised by it. The DataService class calls functions of the GetLight class and the GetOrientation class.
@@ -59,3 +59,4 @@ The main part of Java source code includes 4 files: MainActivity, DataService, G
 | :-------------------------: | :--------------------------------------- | :--------------------------------------: |
 |      Sampling Interval      | The time difference between two samplings. This is only a hint to the system. Events may be received faster or slower than the specified rate.Usually events are received faster. | GetOrientation  -> initSensor()；   GetLight ->initSensor() |
 | Screen data    refresh rate | The refresh frequency of sensor data on the screen. It won't influence the sampling frequency. Default: 0.08s |        MainActivity -> onResume()        |
+|       Data file paths       | Storage paths of data files.             | GetOrientation  -> initSensor()；   GetLight ->initSensor() |
