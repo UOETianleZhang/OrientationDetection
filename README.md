@@ -40,7 +40,7 @@ When finishing the recording, connect the phone/tablet to your computer. Then  c
 
 ## Source Code
 
-###Java code
+### Java code
 
 The main part of Java source code includes 4 files: MainActivity, DataService, GetLight and GetOrientation.![Java Code](https://github.com/UOETianleZhang/OrientationDetection/blob/master/Java%20Code.png)
 
