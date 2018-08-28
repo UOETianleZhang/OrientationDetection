@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -174,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -209,7 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -242,7 +242,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -275,7 +275,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -308,7 +308,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -341,7 +341,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="  Unavilible!"
+                    android:text="  Unavailable!"
                     android:textColor="@color/colorRed"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toStartOf="parent" />
